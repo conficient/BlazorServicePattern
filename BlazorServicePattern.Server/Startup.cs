@@ -1,3 +1,5 @@
+using BlazorServicePattern.Server.Controllers;
+using BlazorServicePattern.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -20,6 +22,11 @@ namespace BlazorServicePattern.Server
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
                     new[] { "application/octet-stream" });
             });
+
+
+            // server-side weather forecast service: switch to this if we change to Server-side Blazor
+            // services.AddSingleton<IWeatherForecastService, SampleDataController>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
